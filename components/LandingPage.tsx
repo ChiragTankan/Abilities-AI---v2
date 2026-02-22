@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Rocket, Target, Zap, Shield, CheckCircle2, ArrowRight, PlayCircle } from "lucide-react";
 
 export function LandingPage() {

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Flame, Menu, X, Rocket, User, LogOut, Brain, LayoutDashboard, MessageSquare, CreditCard } from "lucide-react";
-import { cn } from "@/src/lib/utils";
-import { useAuth } from "@/src/lib/auth";
+import { cn } from "@/lib/utils";
+import { useAuth } from "@/lib/auth";
 import { UserButton } from "@clerk/clerk-react";
 
 export function Navbar() {
