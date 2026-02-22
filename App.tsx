@@ -10,6 +10,7 @@ import { PricingPage } from "./components/PricingPage";
 import { AboutUs, Contact, PrivacyPolicy, TermsOfService } from "./components/StaticPages";
 import { useAuth } from "./lib/auth";
 
+// Helper component to protect private routes
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
 
@@ -30,9 +31,17 @@ const App: React.FC = () => {
       <div className="min-h-screen bg-black text-white">
         <Navbar />
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<AuthPage mode="login" />} />
           <Route path="/signup" element={<AuthPage mode="signup" />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
+
+          {/* Protected Routes */}
           <Route
             path="/onboarding"
             element={
@@ -57,11 +66,8 @@ const App: React.FC = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
+
+          {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
