@@ -1,0 +1,8 @@
+{
+  "name": "Abilities AI",
+  "description": "A high-tech career growth engine for Indian professionals. Analyze resumes, bridge skill gaps with AI-generated roadmaps, and practice mock interviews.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
