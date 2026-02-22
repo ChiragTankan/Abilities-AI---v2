@@ -1,6 +1,6 @@
 import React from "react";
 import { SignIn, SignUp } from "@clerk/clerk-react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export function AuthPage({ mode }: { mode: "login" | "signup" }) {
   return (
