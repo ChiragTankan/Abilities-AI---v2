@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Upload, Target, FileText, CheckCircle2, Loader2, ArrowRight } from "lucide-react";
-import { useAuth } from "@/src/lib/auth";
-import { generateRoadmap } from "@/src/services/gemini";
+import { useAuth } from "@/lib/auth";
+import { generateRoadmap } from "@/services/ai";
 
 export function OnboardingPage() {
   const [step, setStep] = React.useState(1);
@@ -37,7 +37,7 @@ export function OnboardingPage() {
       
       // 2. Generate roadmap on client
       setStatus("Building your AI roadmap...");
-      const roadmap = await generateRoadmap(targetRole, resumeText, user?.is_premium || false);
+      const roadmap = await generateRoadmap(targetRole, resumeText, authenticatedFetch);
       
       // 3. Save roadmap to backend
       setStatus("Saving your path...");

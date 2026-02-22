@@ -1,9 +1,9 @@
 import React from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Send, User, Bot, Loader2, Trophy, ArrowLeft, AlertCircle, CheckCircle2 } from "lucide-react";
-import { useAuth } from "@/src/lib/auth";
-import { cn } from "@/src/lib/utils";
-import { getInterviewResponse } from "@/src/services/gemini";
+import { useAuth } from "@/lib/auth";
+import { cn } from "@/lib/utils";
+import { getInterviewResponse } from "@/services/ai";
 
 export function InterviewPage() {
   const { user, authenticatedFetch } = useAuth();

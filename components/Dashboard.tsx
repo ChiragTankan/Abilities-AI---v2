@@ -1,8 +1,8 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { CheckCircle2, Circle, BookOpen, Zap, Calendar, Trophy, ArrowRight } from "lucide-react";
-import { useAuth } from "@/src/lib/auth";
-import { cn } from "@/src/lib/utils";
+import { useAuth } from "@/lib/auth";
+import { cn } from "@/lib/utils";
 
 export function Dashboard() {
   const { user, authenticatedFetch } = useAuth();

@@ -1,8 +1,8 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Check, Zap, Star, Rocket, Shield, Loader2, Gift } from "lucide-react";
-import { useAuth } from "@/src/lib/auth";
-import { cn } from "@/src/lib/utils";
+import { useAuth } from "@/lib/auth";
+import { cn } from "@/lib/utils";
 
 export function PricingPage() {
   const { user, refreshUser, authenticatedFetch } = useAuth();
