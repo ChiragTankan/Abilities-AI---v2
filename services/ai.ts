@@ -6,9 +6,10 @@
 export async function generateRoadmap(
   targetRole: string,
   resumeText: string,
-  authenticatedFetch: (url: string, init?: RequestInit) => Promise<Response>
+  authenticatedFetch?: (url: string, init?: RequestInit) => Promise<Response>
 ) {
-  const response = await authenticatedFetch("/api/ai/generate-roadmap", {
+  const request = authenticatedFetch ?? fetch;
+  const response = await request("/api/ai/generate-roadmap", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ targetRole, resumeText }),
@@ -27,9 +28,10 @@ export async function getInterviewResponse(
   history: { role: string; content: string }[],
   targetRole: string,
   resumeText: string,
-  authenticatedFetch: (url: string, init?: RequestInit) => Promise<Response>
+  authenticatedFetch?: (url: string, init?: RequestInit) => Promise<Response>
 ) {
-  const response = await authenticatedFetch("/api/ai/interview-chat", {
+  const request = authenticatedFetch ?? fetch;
+  const response = await request("/api/ai/interview-chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message, history, targetRole, resumeText }),
