@@ -1,6 +1,5 @@
 import React from "react";
 import { useAuth as useClerkAuth, useUser } from "@clerk/clerk-react";
-import { useNavigate } from "react-router-dom";
 
 interface User {
   id: number;
@@ -23,7 +22,7 @@ interface AuthContextType {
 const AuthContext = React.createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const { isLoaded, isSignedIn, user: clerkUser } = useUser();
+  const { isLoaded, isSignedIn } = useUser();
   const { getToken } = useClerkAuth();
   const [dbUser, setDbUser] = React.useState<User | null>(null);
   const [loading, setLoading] = React.useState(true);
